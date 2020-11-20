@@ -1,0 +1,2 @@
+bitbag_sylius_wishlist_plugin_shop:
+    resource: "@BitBagSyliusWishlistPlugin/Resources/config/routing.yml"

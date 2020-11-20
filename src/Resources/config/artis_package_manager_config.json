@@ -1,0 +1,20 @@
+{
+  "install": {
+    "config": {
+      "config/packages/_sylius.yaml" : {
+        "add": {
+          "configFile": "@DHArtisWishlistPlugin/Resources/config/config.yml"
+        }
+      }
+    },
+    "routing": {
+      "config/routes/routing.yml" : {
+        "add": {
+          "dh_artis_wishlist_plugin": {
+            "resource": "@DHArtisWishlistPlugin/Resources/config/routing.yml"
+          }
+        }
+      }
+    }
+  }
+}
