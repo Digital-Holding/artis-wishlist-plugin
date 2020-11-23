@@ -83,17 +83,17 @@ final class ShowWishlistAction
             $wishlist = $this->wishlistRepository->findByToken($wishlistToken);
         }
 
-        if (null !== $user) {
+        if (null !== $user && null === $wishlist) {
             /** @var WishlistInterface $wishlist */
             $wishlist = $this->wishlistRepository->findByShopUser($user);
         }
 
-        $wishlistView = null !== $wishlist ? $this->buildFavoriteView($wishlist, $channel, $localeCode) : [];
+        $wishlistView = null !== $wishlist ? $this->buildWishlistView($wishlist, $channel, $localeCode) : [];
 
         return $this->viewHandler->handle(View::create($wishlistView, Response::HTTP_OK));
     }
 
-    private function buildFavoriteView(WishlistInterface $wishlist, ChannelInterface $channel, string $localeCode): WishlistView
+    private function buildWishlistView(WishlistInterface $wishlist, ChannelInterface $channel, string $localeCode): WishlistView
     {
         return $this->wishlistViewFactory->create($wishlist, $channel, $localeCode);
     }

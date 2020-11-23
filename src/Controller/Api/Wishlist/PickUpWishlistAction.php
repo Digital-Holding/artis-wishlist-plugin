@@ -89,6 +89,7 @@ final class PickUpWishlistAction
         if (null === $wishlist) {
             $wishlist = $this->wishlistFactory->createNew();
         }
+
         $this->wishlistRepository->add($wishlist);
 
         $wishlistView = $this->wishlistViewFactory->create($wishlist, $channel, $localeCode);
