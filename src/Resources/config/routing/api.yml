@@ -1,0 +1,2 @@
+artis_wishlist_plugin_wishlist:
+    resource: "api/wishlist.yml"

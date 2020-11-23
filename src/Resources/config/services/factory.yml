@@ -1,0 +1,15 @@
+services:
+    artis_wishlist_plugin.factory.wishlist.wishlist_view_factory:
+        class: DH\ArtisWishlistPlugin\Factory\ViewFactory\Wishlist\WishlistViewFactory
+        public: true
+        arguments:
+            - "@artis_wishlist_plugin.factory.wishlist.wishlist_product_view_factory"
+            - '%digital_holding_artis_wishlist_plugin.view.wishlist.class%'
+
+    artis_wishlist_plugin.factory.wishlist.wishlist_product_view_factory:
+        class: DH\ArtisWishlistPlugin\Factory\ViewFactory\Wishlist\WishlistProductViewFactory
+        public: true
+        arguments:
+            - "@sylius.shop_api_plugin.factory.product_view_factory"
+            - "@sylius.shop_api_plugin.factory.product_variant_view_factory"
+            - '%digital_holding_artis_wishlist_plugin.view.wishlist_product.class%'

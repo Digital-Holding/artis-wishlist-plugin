@@ -1,0 +1,63 @@
+services:
+    artis_wishlist_plugin.controller.wishlist.add_product_to_wishlist_action:
+        class: DH\ArtisWishlistPlugin\Controller\Api\Wishlist\AddProductToWishlistAction
+        public: true
+        arguments:
+            - "@fos_rest.view_handler"
+            - "@sylius_shop_api_plugin.command_bus"
+            - "@sylius.shop_api_plugin.factory.validation_error_view_factory"
+            - "@artis_wishlist_plugin.command_provider.add_product_to_wishlist"
+
+    artis_wishlist_plugin.controller.wishlist.add_product_variant_to_wishlist_action:
+        class: DH\ArtisWishlistPlugin\Controller\Api\Wishlist\AddProductVariantToWishlistAction
+        public: true
+        arguments:
+            - "@fos_rest.view_handler"
+            - "@sylius_shop_api_plugin.command_bus"
+            - "@sylius.shop_api_plugin.factory.validation_error_view_factory"
+            - "@artis_wishlist_plugin.command_provider.add_product_variant_to_wishlist"
+
+    artis_wishlist_plugin.controller.wishlist.remove_product_from_wishlist_action:
+        class: DH\ArtisWishlistPlugin\Controller\Api\Wishlist\RemoveProductFromWishlistAction
+        public: true
+        arguments:
+            - "@fos_rest.view_handler"
+            - "@sylius_shop_api_plugin.command_bus"
+            - "@sylius.shop_api_plugin.factory.validation_error_view_factory"
+            - "@artis_wishlist_plugin.command_provider.remove_product_from_wishlist"
+
+    artis_wishlist_plugin.controller.wishlist.remove_product_variant_from_wishlist_action:
+        class: DH\ArtisWishlistPlugin\Controller\Api\Wishlist\RemoveProductVariantFromWishlistAction
+        public: true
+        arguments:
+            - "@fos_rest.view_handler"
+            - "@sylius_shop_api_plugin.command_bus"
+            - "@sylius.shop_api_plugin.factory.validation_error_view_factory"
+            - "@artis_wishlist_plugin.command_provider.remove_product_variant_from_wishlist"
+
+    artis_wishlist_plugin.controller.wishlist.show_wishlist_action:
+        class: DH\ArtisWishlistPlugin\Controller\Api\Wishlist\ShowWishlistAction
+        public: true
+        arguments:
+            - "@fos_rest.view_handler"
+            - "@validator"
+            - "@sylius.shop_api_plugin.factory.validation_error_view_factory"
+            - "@sylius.shop_api_plugin.http.request_based_locale_provider"
+            - "@bitbag_sylius_wishlist_plugin.repository.wishlist"
+            - "@sylius.context.channel"
+            - "@artis_wishlist_plugin.factory.wishlist.wishlist_view_factory"
+            - "@security.token_storage"
+
+    artis_wishlist_plugin.controller.wishlist.pickup_wishlist_action:
+        class: DH\ArtisWishlistPlugin\Controller\Api\Wishlist\PickUpWishlistAction
+        public: true
+        arguments:
+            - "@fos_rest.view_handler"
+            - "@sylius_shop_api_plugin.command_bus"
+            - "@sylius.shop_api_plugin.factory.validation_error_view_factory"
+            - "@bitbag_sylius_wishlist_plugin.repository.wishlist"
+            - "@bitbag_sylius_wishlist_plugin.factory.wishlist"
+            - "@artis_wishlist_plugin.factory.wishlist.wishlist_view_factory"
+            - "@sylius.context.channel"
+            - "@sylius.shop_api_plugin.http.request_based_locale_provider"
+            - "@security.token_storage"

@@ -1,0 +1,48 @@
+services:
+    artis_wishlist_plugin.handler.add_product_to_wishlist_handler:
+        class: DH\ArtisWishlistPlugin\Handler\Wishlist\AddProductToWishlistHandler
+        public: true
+        arguments:
+            - "@sylius.repository.product"
+            - "@bitbag_sylius_wishlist_plugin.repository.wishlist"
+            - "@bitbag_sylius_wishlist_plugin.repository.wishlist_product"
+            - "@bitbag_sylius_wishlist_plugin.factory.wishlist"
+            - "@bitbag_sylius_wishlist_plugin.factory.wishlist_product"
+            - "@security.token_storage"
+        tags:
+            - { name: messenger.message_handler, bus: sylius_shop_api_plugin.command_bus }
+
+    artis_wishlist_plugin.handler.add_product_variant_to_wishlist_handler:
+        class: DH\ArtisWishlistPlugin\Handler\Wishlist\AddProductVariantToWishlistHandler
+        public: true
+        arguments:
+            - "@sylius.repository.product_variant"
+            - "@bitbag_sylius_wishlist_plugin.repository.wishlist"
+            - "@bitbag_sylius_wishlist_plugin.repository.wishlist_product"
+            - "@bitbag_sylius_wishlist_plugin.factory.wishlist"
+            - "@bitbag_sylius_wishlist_plugin.factory.wishlist_product"
+            - "@security.token_storage"
+        tags:
+            - { name: messenger.message_handler, bus: sylius_shop_api_plugin.command_bus }
+
+    artis_wishlist_plugin.handler.remove_product_from_wishlist_handler:
+        class: DH\ArtisWishlistPlugin\Handler\Wishlist\RemoveProductFromWishlistHandler
+        public: true
+        arguments:
+            - "@sylius.repository.product"
+            - "@bitbag_sylius_wishlist_plugin.repository.wishlist"
+            - "@bitbag_sylius_wishlist_plugin.repository.wishlist_product"
+            - "@security.token_storage"
+        tags:
+            - { name: messenger.message_handler, bus: sylius_shop_api_plugin.command_bus }
+
+    artis_wishlist_plugin.handler.remove_product_variant_from_wishlist_handler:
+        class: DH\ArtisWishlistPlugin\Handler\Wishlist\RemoveProductVariantFromWishlistHandler
+        public: true
+        arguments:
+            - "@sylius.repository.product"
+            - "@bitbag_sylius_wishlist_plugin.repository.wishlist"
+            - "@bitbag_sylius_wishlist_plugin.repository.wishlist_product"
+            - "@security.token_storage"
+        tags:
+            - { name: messenger.message_handler, bus: sylius_shop_api_plugin.command_bus }

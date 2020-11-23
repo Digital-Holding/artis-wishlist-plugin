@@ -1,0 +1,24 @@
+services:
+    artis_wishlist_plugin.command_provider.add_product_to_wishlist:
+        class: Sylius\ShopApiPlugin\CommandProvider\DefaultCommandProvider
+        arguments:
+            - '%digital_holding_artis_wishlist_plugin.request.add_product_to_wishlist.class%'
+            - "@validator"
+
+    artis_wishlist_plugin.command_provider.add_product_variant_to_wishlist:
+        class: Sylius\ShopApiPlugin\CommandProvider\DefaultCommandProvider
+        arguments:
+            - '%digital_holding_artis_wishlist_plugin.request.add_product_variant_to_wishlist.class%'
+            - "@validator"
+
+    artis_wishlist_plugin.command_provider.remove_product_from_wishlist:
+        class: Sylius\ShopApiPlugin\CommandProvider\DefaultCommandProvider
+        arguments:
+            - '%digital_holding_artis_wishlist_plugin.request.remove_product_from_wishlist.class%'
+            - "@validator"
+
+    artis_wishlist_plugin.command_provider.remove_product_variant_from_wishlist:
+        class: Sylius\ShopApiPlugin\CommandProvider\DefaultCommandProvider
+        arguments:
+            - '%digital_holding_artis_wishlist_plugin.request.remove_product_variant_from_wishlist.class%'
+            - "@validator"

@@ -1,0 +1,36 @@
+artis_wishlist_plugin_wishlist_show:
+    path: /wishlist/{token}
+    methods: [GET]
+    defaults:
+        _controller: artis_wishlist_plugin.controller.wishlist.show_wishlist_action
+        token: null
+
+artis_wishlist_plugin_pickup_wishlist:
+    path: /wishlist
+    methods: [POST]
+    defaults:
+        _controller: artis_wishlist_plugin.controller.wishlist.pickup_wishlist_action
+
+artis_wishlist_plugin_add_product_to_wishlist:
+    path: /wishlist/{token}/product/{code}
+    methods: [POST]
+    defaults:
+        _controller: artis_wishlist_plugin.controller.wishlist.add_product_to_wishlist_action
+
+artis_wishlist_plugin_add_product_variant_to_wishlist:
+    path: /wishlist/{token}/product-variant/{code}
+    methods: [POST]
+    defaults:
+        _controller: artis_wishlist_plugin.controller.wishlist.add_product_variant_to_wishlist_action
+
+artis_wishlist_plugin_remove_product_from_wishlist:
+    path: /wishlist/{token}/product/{code}
+    methods: [DELETE]
+    defaults:
+        _controller: artis_wishlist_plugin.controller.wishlist.remove_product_from_wishlist_action
+
+artis_wishlist_plugin_remove_product_variant_from_wishlist:
+    path: /wishlist/{token}/product-variant/{code}
+    methods: [DELETE]
+    defaults:
+        _controller: artis_wishlist_plugin.controller.wishlist.remove_product_variant_from_wishlist_action
