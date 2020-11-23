@@ -1,0 +1,5 @@
+imports:
+    - { resource: services/controller.yml }
+    - { resource: services/command_provider.yml }
+    - { resource: services/handler.yml }
+    - { resource: services/factory.yml }

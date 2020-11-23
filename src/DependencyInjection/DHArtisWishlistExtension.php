@@ -17,6 +17,14 @@ final class DHArtisWishlistExtension extends Extension
         $config = $this->processConfiguration($this->getConfiguration([], $container), $config);
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
 
+        foreach ($config['view_classes'] as $view => $class) {
+            $container->setParameter(sprintf('digital_holding_artis_wishlist_plugin.view.%s.class', $view), $class);
+        }
+
+        foreach ($config['request_classes'] as $request => $class) {
+            $container->setParameter(sprintf('digital_holding_artis_wishlist_plugin.request.%s.class', $request), $class);
+        }
+
         $loader->load('services.yml');
     }
 
