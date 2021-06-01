@@ -40,7 +40,7 @@ services:
         class: DH\ArtisWishlistPlugin\Handler\Wishlist\RemoveProductVariantFromWishlistHandler
         public: true
         arguments:
-            - "@sylius.repository.product"
+            - "@sylius.repository.product_variant"
             - "@bitbag_sylius_wishlist_plugin.repository.wishlist"
             - "@bitbag_sylius_wishlist_plugin.repository.wishlist_product"
             - "@security.token_storage"
