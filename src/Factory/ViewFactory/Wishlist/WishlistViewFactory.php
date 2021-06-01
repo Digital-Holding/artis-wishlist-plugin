@@ -30,6 +30,7 @@ final class WishlistViewFactory implements WishlistViewFactoryInterface
         /** @var WishlistView $wishlistView */
         $wishlistView = new $this->wishlistViewClass();
         $wishlistView->id = $wishlist->getId();
+        $wishlistView->token = $wishlist->getToken();
 
         foreach ($wishlist->getWishlistProducts() as $wishlistProduct) {
             $wishlistView->wishlistProducts[] = $this->wishlistProductViewFactory->create($wishlistProduct, $channel, $locale);
